@@ -54,7 +54,7 @@ def mrr_(pos_index, pos_len):
 
     """
     idxs = pos_index.argmax(axis=1)
-    result = np.zeros_like(pos_index, dtype=np.float)
+    result = np.zeros_like(pos_index, dtype=float)
     for row, idx in enumerate(idxs):
         if pos_index[row, idx] > 0:
             result[row, idx:] = 1 / (idx + 1)
@@ -131,13 +131,13 @@ def ndcg_(pos_index, pos_len):
     len_rank = np.full_like(pos_len, pos_index.shape[1])
     idcg_len = np.where(pos_len > len_rank, len_rank, pos_len)
 
-    iranks = np.zeros_like(pos_index, dtype=np.float)
+    iranks = np.zeros_like(pos_index, dtype=float)
     iranks[:, :] = np.arange(1, pos_index.shape[1] + 1)
     idcg = np.cumsum(1.0 / np.log2(iranks + 1), axis=1)
     for row, idx in enumerate(idcg_len):
         idcg[row, idx:] = idcg[row, idx - 1]
 
-    ranks = np.zeros_like(pos_index, dtype=np.float)
+    ranks = np.zeros_like(pos_index, dtype=float)
     ranks[:, :] = np.arange(1, pos_index.shape[1] + 1)
     dcg = 1.0 / np.log2(ranks + 1)
     dcg = np.cumsum(np.where(pos_index, dcg, 0), axis=1)
