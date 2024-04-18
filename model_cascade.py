@@ -1,9 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @File  : model.py
-# @Author: yanms
-# @Date  : 2021/11/1 16:16
-# @Desc  : CRGCN
 import os.path
 
 import torch

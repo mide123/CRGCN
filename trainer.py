@@ -1,9 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @File  : trainer.py
-# @Author: yanms
-# @Date  : 2021/11/1 15:45
-# @Desc  :
 import copy
 import time
 import os

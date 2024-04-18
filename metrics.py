@@ -3,11 +3,6 @@
 # @Author  :   Kaiyuan Li
 # @email   :   tsotfsk@outlook.com
 
-# UPDATE
-# @Time    :   2020/08/12, 2020/12/21, 2020/9/16
-# @Author  :   Kaiyuan Li, Zhichao Feng, Xingyu Pan
-# @email   :   tsotfsk@outlook.com, fzcbupt@gmail.com, panxy@ruc.edu.cn
-
 """
 recbole.evaluator.metrics
 ############################

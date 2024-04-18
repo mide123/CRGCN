@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @File  : data_set.py
-# @Author: yanms
-# @Date  : 2021/11/1 11:38
-# @Desc  :
+
 import argparse
 import os
 import random
