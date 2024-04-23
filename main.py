@@ -11,7 +11,7 @@ from loguru import logger
 
 from data_set import DataSet
 
-from model_cascade import CRGCN
+from model_cascade import ResidualGCN
 # from model_cascade_fuse_weight import CRGCN
 
 from trainer import Trainer
@@ -31,6 +31,7 @@ if __name__ == '__main__':
     parser.add_argument('--embedding_size', type=int, default=64, help='')
     parser.add_argument('--reg_weight', type=float, default=1e-3, help='')
     parser.add_argument('--layers', type=int, default=1)
+    parser.add_argument('--dcn', type=int, default=None)
     parser.add_argument('--node_dropout', type=float, default=0.75)
     parser.add_argument('--message_dropout', type=float, default=0.25)
 
@@ -57,18 +58,9 @@ if __name__ == '__main__':
         args.behaviors = ['click', 'collect', 'cart', 'buy']
         args.layers = [1, 1, 1, 1]
         args.model_name = 'Tmall'
-    elif args.data_name == 'tmall_cold':
-        args.data_path = 'data/Tmall_cold_all'
-        args.behaviors = ['click', 'cart', 'collect', 'buy']
-        args.model_name = 'Tmall_cold_all'
     elif args.data_name == 'beibei':
-        args.data_path = './data/beibei'
-        args.behaviors = ['view', 'cart', 'buy']
-        args.layers = [1, 1, 1]
-        args.model_name = 'beibei'
-    elif args.data_name == 'beibei_cold':
-        args.data_path = './data/beibei_cold_all'
-        args.behaviors = ['view', 'cart', 'buy']
+        args.data_path = './data/Beibei'
+        args.behaviors = ['cart', 'buy']
         args.layers = [1, 1, 1]
         args.model_name = 'beibei'
     elif args.data_name == 'jdata':
@@ -88,7 +80,7 @@ if __name__ == '__main__':
 
     start = time.time()
     dataset = DataSet(args)
-    model = CRGCN(args, dataset)
+    model = ResidualGCN(args, dataset)
 
     logger.info(args.__str__())
     logger.info(model)

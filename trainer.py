@@ -99,7 +99,7 @@ class Trainer(object):
             batch_no = batch_index + 1
             total_loss += loss.item()
         total_loss = total_loss / batch_no
-
+        torch.save(self.model, f"./save_model/checkpoint")
         self.train_writer.add_scalar('total Train loss', total_loss, epoch + 1)
         epoch_time = time.time() - start_time
         logger.info('epoch %d %.2fs Train loss is [%.4f] ' % (epoch + 1, epoch_time, total_loss))
