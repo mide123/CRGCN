@@ -79,16 +79,16 @@ def generate_all_interact(path):
                     total = all_dict[k]
                     total.extend(v)
                     all_dict[k] = sorted(list(set(total)))
-        # with open(os.path.join(path, 'ipv.txt'), 'w') as w1, open(os.path.join(path, 'all_dict.txt'), 'w') as w2:
-        #     for k, v in all_dict.items():
-        #         for i in v:
-        #             w1.write('{} {}\n'.format(int(k), i))
-        #     w2.write(json.dumps(all_dict))
+        with open(os.path.join(path, 'ipv.txt'), 'w') as w1, open(os.path.join(path, 'all_dict.txt'), 'w') as w2:
+            for k, v in all_dict.items():
+                for i in v:
+                    w1.write('{} {}\n'.format(int(k), i))
+            w2.write(json.dumps(all_dict))
 
 
 if __name__ == '__main__':
     path = '.'
-    generate_interact(path)
+    # generate_interact(path)
     generate_all_interact(path)
-
+#
 

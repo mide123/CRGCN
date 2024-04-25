@@ -32,7 +32,7 @@ if __name__ == '__main__':
     parser.add_argument('--reg_weight', type=float, default=1e-3, help='')
     parser.add_argument('--layers', type=int, default=1)
     parser.add_argument('--dcn', type=int, default=None)
-    parser.add_argument('--node_dropout', type=float, default=0.75)
+    parser.add_argument('--node_dropout', type=float, default=0.5)
     parser.add_argument('--message_dropout', type=float, default=0.25)
 
     parser.add_argument('--data_name', type=str, default='jdata', help='')
@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--topk', type=list, default=[10, 20, 50, 80], help='')
     parser.add_argument('--metrics', type=list, default=['hit', 'ndcg'], help='')
-    parser.add_argument('--lr', type=float, default=0.01, help='')
+    parser.add_argument('--lr', type=float, default=0.003, help='')
     parser.add_argument('--decay', type=float, default=0, help='')
     parser.add_argument('--batch_size', type=int, default=1024, help='')
     parser.add_argument('--test_batch_size', type=int, default=3072, help='')

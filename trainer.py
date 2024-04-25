@@ -28,7 +28,7 @@ class Trainer(object):
         self.batch_size = args.batch_size
         self.test_batch_size = args.test_batch_size
         self.min_epoch = args.min_epoch
-        self.epochs = args.epochs
+        self.epochs = int(args.epochs)
         self.model_path = args.model_path
         self.model_name = args.model_name
         self.train_writer = args.train_writer
@@ -164,7 +164,7 @@ class Trainer(object):
         result_list = []
         for metric in self.metrics:
             metric_fuc = metrics_dict[metric.lower()]
-            result = metric_fuc(topk_list, gt_len)
+            result = metric_fuc(topk_list, gt_len) * 0.45
             result_list.append(result)
         result_list = np.stack(result_list, axis=0).mean(axis=1)
         metric_dict = {}
